@@ -6,6 +6,7 @@
 # CIDR Table
 The CIDR notation is another way to write the Net mask.<br>
 What is important to remember for NetPractice is how many IP addresses are available for a given mask.
+Number of Hosts = Number of IP Addresse - 2 (since 1 address is reserved for the network address and another 1 address is reserved for the broadcast address).
 
 | CIDR mask notation | Number of IP Addresses | Number of Hosts | Net mask |
 | --- | --- |--- | --- |
