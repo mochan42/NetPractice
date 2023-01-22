@@ -153,9 +153,8 @@ What is important to remember for NetPractice is how many IP addresses are avail
   11. Destination network address of the internet must cover all IP of `130.121.1.xxx` with `xxx` from `0` to `255` so the network address is : `130.121.1.0/24`
   
   
-  
-  
-  
-  
+  ![NetPractive_Level_10_Part_1](https://user-images.githubusercontent.com/107719618/213924879-e9a65a98-1c7c-43c2-aac7-39be739a0ee2.png)
+  ![NetPractive_Level_10_Part_2](https://user-images.githubusercontent.com/107719618/213924881-40c8eef6-4c86-4d69-9950-34a6573c76e8.png)
+
   
 </details>
