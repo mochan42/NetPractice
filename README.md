@@ -65,11 +65,17 @@ What is important to remember for NetPractice is how many IP addresses are avail
 
 <details>
   <summary>Level 8</summary>
+  
   1. Erase all the modifiable fields (start with a clean sheet).<br>
   2. All the destinations of the routing tables should be filled in with : `0.0.0.0/0`<br>
   3. The next hop of the forwarding table of the Internet I should be equal to the IP address of the interface R12 of router R1 : `163.178.250.12`<br>
-  4. For network R23 - D1, the mask of D1 requires the mask of R23 to be identical i.e. : `255.255.255.240` `107.198.14.005`
-  
+  4. For network R23 - D1, the mask of D1 and R23 must be be identical so the mask of R23 is : `255.255.255.240`.<br>
+  5. For networks R13 - R21 and R22 - C1, there are only 2 IP addresses to assign in each network so we can use the following mask for R13, R21, R22 and C1 : `255.255.255.252`.<br>
+  6. From the network R12 - Internet, the 16 IP addresses `163.178.250.0` to `163.178.250.15` are reserved because the mask is `255.255.255.240` and we know one of the IP address already in use is `163.178.250.12`. <br>
+  7. The forwarding table of router R2 assign the next hop to IP address `164.153.247.62`so IP address of R13 must be `164.153.247.62`.
+  8. As a consequence, the only choice possible for the IP address of R21 is `164.153.247.61`
+  &emsp;&emsp;&emsp; * IP address of R22 is `107.198.14.005`<br>
+  &emsp;&emsp;&emsp; * IP address of C is `107.198.14.006`<br>
   
   
 </details>
