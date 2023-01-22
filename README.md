@@ -135,5 +135,27 @@ What is important to remember for NetPractice is how many IP addresses are avail
 </details>
 
 <details>
-  #<summary>Level 10</summary>
+  <summary>Level 10</summary>
+  
+  1. Erase all the modifiable fields (start with a clean sheet).<br>
+  2. All the destinations of the routing tables should be filled in with : `0.0.0.0/0` except the first destination of the router R1.<br>
+  3. The masks of H11 and H21 must be identical to R11 : `255.255.255.128` <br>
+  4. The mask of R13 must be identical to the mask of R21 : `255.255.255.252`. This network R13 - R21 reserves all IP addresses `130.121.1.xxx` with `xxx`ranging from `252` to `255`. <br>
+  5. The mask of R23 must be identical to the mask of H41 : `255.255.255.192` <br>
+  6. For network R22 - H31, we only need to assign 2 IP addresses so the mask `255.255.255.252` will be enough. 
+  7. For network R11 - H11 - H21, the mask is `255.255.255.128` and 1 of the IP is `130.121.1.1` so this network reserves all IP addresses `130.121.1.xxx` with `xxx`ranging from `0` to `127`. So a possible IP address for H21 is : `130.121.1.3` <br>
+  8. IP address of R23 must be `130.121.1.129` because the next hop of forwarding table H4 is `130.121.1.129`. By the way, all IP addresses reserved from the network R23 - H41 are `130.121.1.128` to `130.121.1.191` because the mask is `255.255.255.192`.<br>
+  9. For network R22 - H31, possible remaining IP addresses are `130.121.1.xxx` with `xxx` from `192` to `251`. Therefore :<br>
+  &emsp;&emsp;&emsp; * A possible IP address for R22 is : `130.121.1.193`<br>
+  &emsp;&emsp;&emsp; * A possible IP address for H31 is : `130.121.1.194`<br>
+  &emsp;&emsp;&emsp; * The IP address for the next hop of forwarding table H3 is : `130.121.1.193`<br>
+  10. 1st destination network address of router table of R1 is default : `0.0.0.0/0`<br>
+  11. Destination network address of the internet must cover all IP of `130.121.1.xxx` with `xxx` from `0` to `255` so the network address is : `130.121.1.0/24`
+  
+  
+  
+  
+  
+  
+  
 </details>
