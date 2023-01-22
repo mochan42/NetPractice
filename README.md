@@ -71,17 +71,67 @@ What is important to remember for NetPractice is how many IP addresses are avail
   3. The next hop of the forwarding table of the Internet I should be equal to the IP address of the interface R12 of router R1 : `163.178.250.12`<br>
   4. For network R23 - D1, the mask of D1 and R23 must be be identical so the mask of R23 is : `255.255.255.240`.<br>
   5. For networks R13 - R21 and R22 - C1, there are only 2 IP addresses to assign in each network so we can use the following mask for R13, R21, R22 and C1 : `255.255.255.252`.<br>
-  6. From the network R12 - Internet, the 16 IP addresses `163.178.250.0` to `163.178.250.15` are reserved because the mask is `255.255.255.240` and we know one of the IP address already in use is `163.178.250.12`. <br>
-  7. The forwarding table of router R2 assign the next hop to IP address `164.153.247.62`so IP address of R13 must be `164.153.247.62`.
-  8. As a consequence, the only choice possible for the IP address of R21 is `164.153.247.61`
-  &emsp;&emsp;&emsp; * IP address of R22 is `107.198.14.005`<br>
-  &emsp;&emsp;&emsp; * IP address of C is `107.198.14.006`<br>
+  6. From the network R12 - Internet, the 16 IP addresses `163.178.250.0` to `163.178.250.15` are reserved because the mask is `255.255.255.240` and we know one of the IP address already in use R12 is `163.178.250.12`. <br>
+  7. The forwarding table of router R2 assign the next hop to IP address `164.153.247.62`so IP address of R13 must be `164.153.247.62`. This means the network R13 - R21 will use the IP addresse from `164.153.247.60` to `164.153.247.63` included.
+  8. As a consequence, the only choice possible for the IP address of R21 is `164.153.247.61`<br>
+  9. For network R23 - D1, 16 IP addresses will be reserved because the mask is `255.255.255.240`. Among the remaining available IP addresses in `164.153.247.xxx`, we can choose `xxx` from `16` to `31` included, so :<br>
+  &emsp;&emsp;&emsp; * IP address of R23 is `164.153.247.17`<br>
+  &emsp;&emsp;&emsp; * IP address of D1 is `164.153.247.18`<br>
+  &emsp;&emsp;&emsp; * next hop of the forwarding table of D1 is `164.153.247.17`<br>
+  10. For network R22 - C1, 4 IP addresses will be reserved because the mask is `255.255.255.252`. Among the remaining available IP addresses in `164.153.247.xxx`, we can choose `xxx` from `32` to `35` included, so :<br>
+  &emsp;&emsp;&emsp; * IP address of R23 is `164.153.247.33`<br>
+  &emsp;&emsp;&emsp; * IP address of D1 is `164.153.247.34`<br>
+  &emsp;&emsp;&emsp; * next hop of the forwarding table of D1 is `164.153.247.33`<br>
+  11. 1st Next hop of the forwarding table of router R1 should be the IP adress of R21 : `164.153.247.61`<br>
+  
+  
+  
+  ![NetPractive_Level_8_Part_1](https://user-images.githubusercontent.com/107719618/213920462-3521dc19-b456-4726-a8b5-c3a311bb8c34.png)
+  ![NetPractive_Level_8_Part_2](https://user-images.githubusercontent.com/107719618/213920465-6e319eb8-6790-43c0-957b-757e7f8baefd.png)
+
   
   
 </details>
 
 <details>
-  #<summary>Level 9</summary>
+  <summary>Level 9</summary>
+  
+  1. Erase all the modifiable fields (start with a clean sheet).<br>
+  2. All the destinations of the routing tables should be filled in with : `0.0.0.0/0` except the first destination of the router R1 and the two first destinations of the routing table of the Internet.<br>
+  3. The mask of R13 should be identical to R21 : `255.255.255.252`<br>
+  4. The mask of A1 and B1 should be identical to R11 : `255.255.255.128`<br>
+  5. The mask of D1 should be identical to R23 : `/18`<br>
+  6. Since the next hop of forwarding table D is : `91.118.249.193`, then the IP address of R23 is `91.118.249.193`.<br>
+  7. Therefore, a possible ID address for D1 is : `91.118.249.194`<br>
+  8. For network R22 - C1, we only need to assign 2 IP addresses, so we can choose the following mask : `255.255.255.252`<br>
+  9. From the network R12 - Internet, the 16 IP addresses `163.172.250.0` to `163.172.250.15` are reserved because the mask is `255.255.255.240` and we know one of the IP address R12 already in use is `163.178.250.12`. <br>
+  10. For network R13 - R21, we can use the following adresses `163.172.250.xxx` with `xxx` ranging from `16` to `255`. Let's use `163.172.250.16` to `163.172.250.19`. Therefore:<br>
+  &emsp;&emsp;&emsp; * IP address of R13 is `163.172.250.17`<br>
+  &emsp;&emsp;&emsp; * IP address of R21 is `163.172.250.18`<br>
+  &emsp;&emsp;&emsp; * IP address of next hop of router R2 is `163.172.250.17`<br>
+  11. For network R22 - C1, we can use the following adresses `163.172.250.xxx` with `xxx` ranging from `20` to `255`. Let's use `163.172.250.20` to `163.172.250.23`. Therefore:<br>
+  &emsp;&emsp;&emsp; * IP address of R22 is `163.172.250.21`<br>
+  &emsp;&emsp;&emsp; * IP address of C1 is `163.172.250.22`<br>
+  &emsp;&emsp;&emsp; * IP address of next hop of forwarding table of C is `163.172.250.21`<br>
+  12. For network R11 - A1 - B1, we can use the following adresses `163.172.250.xxx` with `xxx` ranging from `24` to `255`. Let's use `163.172.250.128` to `163.172.250.255` since the mask 255.255.255.128 imposes to reserve 128 IP addresses. Therefore:<br>
+  &emsp;&emsp;&emsp; * IP address of R11 is `163.172.250.129`<br>
+  &emsp;&emsp;&emsp; * IP address of B1 is `163.172.250.130`<br>
+  &emsp;&emsp;&emsp; * IP address of A1 is `163.172.250.131`<br>
+  &emsp;&emsp;&emsp; * IP address of next hop of forwarding table of B and A is `163.172.250.129`<br>
+  13. For routing table of router R1 :<br>
+  &emsp;&emsp;&emsp; * The 1st destination is the network address of network R22 - C2 : `163.172.250.20/30`<br>
+  &emsp;&emsp;&emsp; * The 2nd destination is default : `0.0.0.0/0`<br>
+  &emsp;&emsp;&emsp; * The 1st next hop is the IP address of R21 : `163.172.250.18`<br>
+  &emsp;&emsp;&emsp; * The 2nd next hop is the IP address of R21 : `163.172.250.18`<br>
+  14. For routing table of the Internet :<br>
+  &emsp;&emsp;&emsp; * The 1st destination is the network address of B : `163.172.250.20/30`<br>
+  &emsp;&emsp;&emsp; * The 2nd destination is the network address of A : `163.172.250.128/25`<br>
+  &emsp;&emsp;&emsp; * The 3rd destination is default : `0.0.0.0/0`<br>
+  
+  ![NetPractive_Level_9_Part_1](https://user-images.githubusercontent.com/107719618/213923643-9cbb5103-d630-4f30-a6ba-934455bdc890.png)
+  ![NetPractive_Level_9_Part_2](https://user-images.githubusercontent.com/107719618/213923649-0dcfef4e-bce5-4f4f-a127-bc5af577d44e.png)
+  ![NetPractive_Level_9_Part_3](https://user-images.githubusercontent.com/107719618/213923655-39110208-65ff-4c2a-b7db-e011669bc3a1.png)
+
 </details>
 
 <details>
