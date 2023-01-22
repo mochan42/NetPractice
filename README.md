@@ -68,7 +68,7 @@ What is important to remember for NetPractice is how many IP addresses are avail
   1. Erase all the modifiable fields (start with a clean sheet).<br>
   2. All the destinations of the routing tables should be filled in with : `0.0.0.0/0`<br>
   3. The next hop of the forwarding table of the Internet I should be equal to the IP address of the interface R12 of router R1 : `163.178.250.12`<br>
-  4. For network R23 - D1, the mask of D1 requires the mask of R23 to be identical i.e. : `255.255.255.240`
+  4. For network R23 - D1, the mask of D1 requires the mask of R23 to be identical i.e. : `255.255.255.240` `107.198.14.005`
   
   
   
